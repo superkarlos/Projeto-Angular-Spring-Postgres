@@ -1,3 +1,17 @@
+
+.conteiner-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
 form{
     width: 400px;
     margin: 0 auto; 
@@ -19,6 +33,7 @@ form{
 table {
     width: 100%;
     border-collapse: collapse;
+    margin: 20px auto;
 }
 th, td {
     padding: 8px;

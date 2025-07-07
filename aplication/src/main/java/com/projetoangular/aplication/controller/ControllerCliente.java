@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/cliente")
+@RequestMapping("/api/cliente")
 public class ControllerCliente {
 
     // Aqui você pode adicionar métodos para manipular os dados do cliente
@@ -36,11 +36,17 @@ public class ControllerCliente {
     }
 
     @PostMapping("/cadastrar")
-    public String cadastrar(@RequestBody Cliente cliente) {
+    public Cliente cadastrar(@RequestBody Cliente cliente) {
         // Aqui você pode chamar o serviço para cadastrar o cliente
         // Exemplo: services.cadastrar(new Cliente(nome, email, telefone));
        
-        return "Cliente cadastrado com sucesso!" + " "+ services.cadastrar(cliente); 
+       
+     try {
+        return services.cadastrar(cliente); 
+     } catch (Exception e) {
+       e.printStackTrace();
+        return null;
+     }
     }
     
     @PutMapping("/atualizar")
@@ -48,14 +54,14 @@ public class ControllerCliente {
         return services.atualizar(data);
     }
     
-    @DeleteMapping("/{id}")
-    public String dell(@PathVariable Long id){
+    @DeleteMapping("/deletar/{id}")
+    public void dell(@PathVariable Long id){
            try {
             services.deletar(id);
            } catch (Exception e) {
-             return e.getMessage();
+            e.printStackTrace();
            }
-          return "Cliente excluido!!";
+          
     }
     
 }
