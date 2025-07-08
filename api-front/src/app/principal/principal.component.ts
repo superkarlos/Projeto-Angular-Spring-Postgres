@@ -74,16 +74,14 @@ export class PrincipalComponent {
         alert("Cliente excluído com sucesso!");
       }
     )
+
+   // cancelar
   }
-  
-  // alterar():void{
-  //   this.service.alterar(this.cliente).subscribe(
-  //     retorno => {
-  //         let 
-  //     }
-  //   )
-  // }
-  //metodo de inicialização do componente
+   cancancelar():void {
+    this.cliente = new Cliente(); // Limpa o formulário
+    this.btnCadastro = false; // Volta para o modo de cadastro
+    this.tabela = true; // Exibe a tabela novamente
+   }
   ngOnInit(): void {  
     this.selecionarTodos();
   }
